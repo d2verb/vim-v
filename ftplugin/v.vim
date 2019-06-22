@@ -7,6 +7,7 @@ let s:save_cpo = &cpo
 set cpo&vim
 
 " Here we tell vim what v language is like
+setlocal comments=://
 
 let &cpo = s:save_cpo
 unlet s:save_cpo
