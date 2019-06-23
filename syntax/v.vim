@@ -19,7 +19,7 @@ syn match vIdentifier /[[:alpha:]_]\w*/
 syn match vFunction /[[:alpha:]_]\w*/
 
 hi def link vIdentifier NONE
-hi def link vFunction None
+hi def link vFunction NONE
 " }}}
 
 " Statement {{{
@@ -49,7 +49,7 @@ syn keyword vType i8 i16 i32 i64 i128
 syn keyword vType u8 u16 u32 u64 u128
 syn keyword vType f32 f64
 syn keyword vType byteptr voidptr
-syn keyword vStructure struct enum
+syn keyword vStructure struct enum nextgroup=vIdentifier skipwhite skipempty
 
 hi def link vType Type
 hi def link vStructure Structure
