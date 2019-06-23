@@ -2,16 +2,10 @@ if exists('b:current_syntax')
   finish
 endif
 
-" Comment {{{
-syn match vComment /\/\/.*/ contains=vTodo
-
-hi def link vComment Comment
-" }}}
-
 " Constant {{{
-syn match vString /\'.*\'/
-syn match vCharacter /`.`/
-syn match vNumber /[0-9]\+/
+syn match vString /'.*'/
+syn match vCharacter /`.`/ " FIXME: escaped char like `\n` wouldn't work so far
+syn match vNumber /[[:digit:]]\+/
 syn keyword vBoolean true false
 
 hi def link vString String
@@ -20,12 +14,27 @@ hi def link vNumber Number
 hi def link vBoolean Boolean
 " }}}
 
+" Identifier {{{
+syn match vIdentifier /[[:alpha:]_]\w*/
+syn match vFunction /[[:alpha:]_]\w*/
+
+hi def link vIdentifier NONE
+hi def link vFunction None
+" }}}
+
 " Statement {{{
-syn keyword vConditional if else switch
+syn keyword vConditional if else switch match assert
 syn keyword vRepeat for
 syn keyword vLabel case default
-syn keyword vOperator + - * / %
-syn keyword vKeyword fn return pub mut in module const import
+syn match vOperator '+\|-\|*\|/\|%'
+syn match vOperator '&\||\|^'
+syn match vOperator '<<\|>>'
+syn match vOperator '==\|!=\|<\|<==\|>\|>='
+syn match vOperator '+=\|-=\|*=\|/=\|%=\|&=\||=\|^=\|>>=\|<<='
+syn match vOperator '&&\|||'
+syn keyword vKeyword break const continue defer go goto import in interface
+syn keyword vKeyword fn nextgroup=vFunction skipwhite skipempty
+syn keyword vKeyword module mut or pub return type
 
 hi def link vConditional Conditional
 hi def link vRepeat Repeat
@@ -47,9 +56,15 @@ hi def link vStructure Structure
 " }}}
 
 " Todo {{{
-syn keyword vTodo TODO FIXME XXX
+syn keyword vTodo TODO FIXME XXX contained
 
 hi def link vTodo Todo
+" }}}
+
+" Comment {{{
+syn match vComment /\/\/.*/ contains=vTodo
+
+hi def link vComment Comment
 " }}}
 
 let b:current_syntax = 'v'
