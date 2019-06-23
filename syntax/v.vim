@@ -3,7 +3,7 @@ if exists('b:current_syntax')
 endif
 
 " Constant {{{
-syn match vString /'.*'/
+syn match vString /'.*'/ contains=vInterpolation
 syn match vCharacter /`.`/ " FIXME: escaped char like `\n` wouldn't work so far
 syn match vNumber /[[:digit:]]\+/
 syn keyword vBoolean true false
@@ -66,6 +66,8 @@ syn match vComment /\/\/.*/ contains=vTodo
 
 hi def link vComment Comment
 " }}}
+
+syn match vInterpolation /$[[:alpha:]_]\w*/ contains=vIdentifier
 
 let b:current_syntax = 'v'
 
