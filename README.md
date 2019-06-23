@@ -1,6 +1,10 @@
 # vim-v
 Vim syntax highlightor for V language.
 
+## Sample Images
+![tetris.png](https://i.imgur.com/1GZeJDn.png)  
+![concurrent_news_fetcher.png](https://i.imgur.com/mhQhIv1.png)
+
 ## Installation
 Installation procedure is quite ordinary and straight-forward.  
 Here are some examples using package managers:
