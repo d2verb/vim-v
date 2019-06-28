@@ -1,5 +1,5 @@
 # vim-v
-Vim syntax highlightor for V language.
+Vim syntax highlighter for V language.
 
 ## Sample Images
 ![tetris.png](https://i.imgur.com/1GZeJDn.png)  
