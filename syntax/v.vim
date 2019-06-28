@@ -3,7 +3,7 @@ if exists('b:current_syntax')
 endif
 
 " Constant {{{
-syn match vString /'.*'/ contains=vInterpolation
+syn match vString /'.\{-}'/ contains=vInterpolation
 syn match vCharacter /`.`/ " FIXME: escaped char like `\n` wouldn't work so far
 syn match vNumber /[[:digit:]]\+/
 syn keyword vBoolean true false
