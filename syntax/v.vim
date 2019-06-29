@@ -63,6 +63,7 @@ hi def link vTodo Todo
 
 " Comment {{{
 syn match vComment /\/\/.*/ contains=vTodo
+syn region vComment start="/\*" end="\*/" contains=vTodo
 
 hi def link vComment Comment
 " }}}
